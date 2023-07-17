@@ -1,8 +1,16 @@
-import React from 'react';
-import { Total } from "../Assets/data";
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function Fitness() {
+  const [data, setData] = useState([]);
+
+  useEffect(()=>{
+    axios.get("https://bloghsapi.onrender.com/api/categories/total")
+    .then((response) => setData(response.data))
+    .catch((error) => console.log("Error", error))
+  },[])
+
   return (
     <div className='p1'>
     <div className='Main'>
@@ -10,7 +18,7 @@ function Fitness() {
         <h4 > Fitness</h4>
         <div className='head'></div>
         <div className="allPosts">
-          {Total.filter((e) => { return e.class === "fitness1" }).map((item, index) => (
+          {data.filter((e) => { return e.class === "fitness1" }).map((item, index) => (
             <div className="latest1">
               <Link to={`/details/${item.id}`} state={{ item }} key={index}><img src={item.cover} alt="" /></Link>
               <div>
@@ -28,7 +36,7 @@ function Fitness() {
         <div className='head'></div>
         <img src="https://i.pinimg.com/originals/6e/1c/a6/6e1ca65507cb0293801a8e9a87790a3d.jpg" alt="" className='natureImg' />
         <div className="allTopPosts">
-          {Total.filter((e) => { return e.class === "fitness2" }).map((item, index) => (
+          {data.filter((e) => { return e.class === "fitness2" }).map((item, index) => (
             <div className="latest2">
               <Link to={`/details/${item.id}`} state={{ item }} key={index}><img src={item.cover} alt="" /></Link>
               <div>
@@ -41,7 +49,7 @@ function Fitness() {
           }
         </div>
         <div className="advertisment">
-          <h4>Advertisment</h4>
+          <h4>Advertisement</h4>
         </div>
       </section>
     </div>

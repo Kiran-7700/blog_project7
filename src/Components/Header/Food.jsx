@@ -1,8 +1,17 @@
-import React from 'react';
-import { Total } from "../Assets/data";
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function Food() {
+  const [data, setData] = useState([]);
+
+  useEffect(()=>{
+    axios.get("https://bloghsapi.onrender.com/api/categories/total")
+    .then((response) => setData(response.data))
+    .catch((error) => console.log("Error", error))
+  },[])
+
+
   return (
     <div className='p1'>
     <div className='Main'>
@@ -10,7 +19,7 @@ function Food() {
       <h4 > Food</h4>
       <div className='head'></div>
       <div className="allPosts">
-        {Total.filter((e) => { return e.class === "food1" }).map((item, index) => (
+        {data.filter((e) => { return e.class === "food1" }).map((item, index) => (
           <div className="latest1">
             <Link to={`/details/${item.id}`} state={{ item }} key={index}><img src={item.cover} alt="" /></Link>
             <div>
@@ -28,7 +37,7 @@ function Food() {
       <div className='head'></div>
       <img src="https://www.eatingwell.com/thmb/m5xUzIOmhWSoXZnY-oZcO9SdArQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/article_291139_the-top-10-healthiest-foods-for-kids_-02-4b745e57928c4786a61b47d8ba920058.jpg" alt="" className='natureImg' />
       <div className="allTopPosts">
-        {Total.filter((e) => { return e.class === "food2" }).map((item, index) => (
+        {data.filter((e) => { return e.class === "food2" }).map((item, index) => (
           <div className="latest2">
             <Link to={`/details/${item.id}`} state={{ item }} key={index}><img src={item.cover} alt="" /></Link>
             <div>
@@ -41,7 +50,7 @@ function Food() {
         }
       </div>
       <div className="advertisment">
-        <h4>Advertisment</h4>
+        <h4>Advertisement</h4>
       </div>
     </section>
     </div>

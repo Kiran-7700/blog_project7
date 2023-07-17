@@ -1,6 +1,5 @@
 import React from 'react'
-import {Data} from "../Assets/data"
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import "./Home.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,6 +7,7 @@ import Slider from "react-slick";
 import {MdNavigateNext} from "react-icons/md";
 import {GrFormPrevious} from "react-icons/gr";
 import HomeCard from './HomeCard';
+import axios from 'axios';
 
 
 const SampleNextArrow=(props)=>{
@@ -47,7 +47,14 @@ function Home() {
       }
     }]
   };
-  let [data,] = useState(Data);
+  const [data, setData] = useState([]);
+
+  useEffect(()=>{
+    axios.get("https://bloghsapi.onrender.com/api/categories/Data")
+    .then((response) => setData(response.data))
+    .catch((error) => console.log("Error", error))
+  },[])
+
   return (
     <>
       <section className='category'>

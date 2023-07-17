@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect ,useState} from 'react'
 import { useLocation } from 'react-router-dom';
 import "./Details.css"
 import { FaFacebook } from "react-icons/fa";
@@ -7,8 +7,8 @@ import { GrInstagram } from "react-icons/gr";
 import { BsYoutube } from "react-icons/bs";
 import { AiTwotoneLike } from "react-icons/ai";
 import { BiShareAlt } from "react-icons/bi";
-import { detailDesc } from "../Assets/data"
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 
@@ -16,6 +16,13 @@ function Details() {
 
   const value = useLocation().state
   console.log(value)
+  const [data, setData] = useState([]);
+
+  useEffect(()=>{
+    axios.get("https://bloghsapi.onrender.com/api/categories/detailDesc")
+    .then((response) => setData(response.data))
+    .catch((error) => console.log("Error", error))
+  },[])
 
 
   return (
@@ -62,7 +69,7 @@ function Details() {
             <hr /> <br />
           </div>
           <div className='totalfooter'>
-            {detailDesc.map((item, index) => (
+            {data.map((item, index) => (
               <div className="detailDesc" key={index}>
                 <Link to={`/details/${item.id}`} state={{ item }}
                   key={index}> <img src={item.cover} alt="" /></Link>

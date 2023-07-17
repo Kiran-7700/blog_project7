@@ -1,13 +1,37 @@
-import React from 'react'
-import { blog, latestArticle, topPosts, latestStories } from "../Assets/data"
+import React, { useEffect, useState } from 'react'
+//import { blog, latestArticle, topPosts, latestStories } from "../Assets/data"
 import { AiOutlineTags } from "react-icons/ai"
 import { AiOutlineClockCircle } from "react-icons/ai"
 import { AiOutlineComment } from "react-icons/ai"
 import { AiOutlineShareAlt } from "react-icons/ai"
 import { AiOutlineDown } from "react-icons/ai"
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 
 function HomeCard() {
+    const [blog, setBlog] = useState([]);
+    const [latestArticle, setLatestArticle] = useState([]);
+    const [topPosts, setTopPosts] = useState([]);
+    const [latestStories, setLatestStories] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+          const blog = await axios(`https://bloghsapi.onrender.com/api/categories/blog`);
+          const latestArticle = await axios(`https://bloghsapi.onrender.com/api/categories/latestArticle`);
+          const topPosts = await axios(`https://bloghsapi.onrender.com/api/categories/topPosts`);
+          const latestStories = await axios(`https://bloghsapi.onrender.com/api/categories/latestStories`);
+    
+
+          setBlog(blog.data)
+          setLatestArticle(latestArticle.data)
+          setTopPosts(topPosts.data)
+          setLatestStories(latestStories.data)
+        };
+    
+        fetchData()
+      }, []);
+
+
     return (
         <div>
             <section className='blog'>
