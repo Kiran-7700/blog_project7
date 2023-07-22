@@ -37,7 +37,7 @@ function Header() {
     else{
       return null;
     }
-  },[loginUser]);
+  },[]);
 
     
 
