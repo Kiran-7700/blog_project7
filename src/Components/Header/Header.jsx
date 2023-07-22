@@ -27,12 +27,9 @@ function Header() {
     let token=localStorage.getItem("token")
     if (token==null) {
       setLoginUser(true)
-       nav("/")
     }
     else if(token) {
-      
       setLoginUser(false)
-      nav("/")
     }
     else{
       return null;
