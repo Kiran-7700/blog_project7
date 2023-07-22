@@ -76,38 +76,38 @@ export function Login() {
   	 		<div class="footer-col">
   	 			<h4>company</h4>
   	 			<ul>
-  	 				<li><a href="#">about us</a></li>
-  	 				<li><a href="#">our services</a></li>
-  	 				<li><a href="#">privacy policy</a></li>
-  	 				<li><a href="#">affiliate program</a></li>
+  	 				<li>about us</li>
+  	 				<li>our services</li>
+  	 				<li>privacy policy</li>
+  	 				<li>affiliate program</li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">
   	 			<h4>get help</h4>
   	 			<ul>
-  	 				<li><a href="#">FAQ</a></li>
-  	 				<li><a href="#">shipping</a></li>
-  	 				<li><a href="#">returns</a></li>
-  	 				<li><a href="#">order status</a></li>
-  	 				<li><a href="#">payment options</a></li>
+  	 				<li>FAQ</li>
+  	 				<li>shipping</li>
+  	 				<li>returns</li>
+  	 				<li>order status</li>
+  	 				<li>payment options</li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">
   	 			<h4>online shop</h4>
   	 			<ul>
-  	 				<li><a href="#">watch</a></li>
-  	 				<li><a href="#">bag</a></li>
-  	 				<li><a href="#">shoes</a></li>
-  	 				<li><a href="#">dress</a></li>
+  	 				<li>watch</li>
+  	 				<li>bag</li>
+  	 				<li>shoes</li>
+  	 				<li>dress</li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">
   	 			<h4>follow us</h4>
   	 			<div class="social-links">
-  	 				<a href="#"><i class="fab fa-facebook-f"></i></a>
-  	 				<a href="#"><i class="fab fa-twitter"></i></a>
-  	 				<a href="#"><i class="fab fa-instagram"></i></a>
-  	 				<a href="#"><i class="fab fa-linkedin-in"></i></a>
+  	 				<i class="fab fa-facebook-f"></i>
+  	 				<i class="fab fa-twitter"></i>
+  	 				<i class="fab fa-instagram"></i>
+  	 				<i class="fab fa-linkedin-in"></i>
   	 			</div>
   	 		</div>
   	 	</div>
