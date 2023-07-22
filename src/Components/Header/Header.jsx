@@ -30,6 +30,7 @@ function Header() {
     }
     else if(token) {
       setLoginUser(false)
+        nav("/")
     }
     else{
       return null;
