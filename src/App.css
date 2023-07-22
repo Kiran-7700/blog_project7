@@ -57,6 +57,7 @@ p {
   .label {
     display: initial;
     margin-left: 320px;
+    margin-top: -20px;
   }
   .links {
     display: flex;
@@ -262,4 +263,64 @@ p {
     border: 1px solid;
     margin-bottom: 20px;
   }
+  .App .login_button{
+    background: #265bc2;
+    border: 2px solid #4c83ee;
+    border-radius: 0.4rem;
+    color: #fff;
+    font-weight: 600;
+    margin-left: 20px;
+    margin-top: 70px;
+    margin-bottom: -60px;
+    width: 90px;
+    padding: 0.4rem 1rem;
+  }
+
+  .App .signUp_button{
+    background: #265bc2;
+    border: 2px solid #4c83ee;
+    border-radius: 0.4rem;
+    color: #fff;
+    font-weight: 600;
+    margin-left: 140px;
+    margin-top: 20px;
+   margin-bottom: 0;
+    width: 110px;
+    padding: 0.4rem 1rem;
+  }
+
+  .App .logOut_button{
+    background: #265bc2;
+    border: 2px solid #4c83ee;
+    border-radius: 0.4rem;
+    color: #fff;
+    font-weight: 600;
+    margin-left: 110px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    width: 110px;
+    padding: 0.4rem 0.5rem;
+  }
+
+  .App .login_form{
+    position: absolute;
+    content: "";
+    background-color: #0c1022;
+    border-radius: 50px 5px;
+    padding:0px 0px ;
+    inset: 5px;
+    z-index: 10;
+    color: #00ccff;
+  }
+
+  .App #login_button button{
+    width: 70%;
+    margin-left: 30px;
+  }
+  .main .login_form_container{
+    width: 300px;
+    height: 400px;
+  }
+  
+
 }

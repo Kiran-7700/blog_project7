@@ -16,10 +16,10 @@ function HomeCard() {
 
     useEffect(() => {
         const fetchData = async () => {
-          const blog = await axios(`https://bloghsapi.onrender.com/api/categories/blog`);
-          const latestArticle = await axios(`https://bloghsapi.onrender.com/api/categories/latestArticle`);
-          const topPosts = await axios(`https://bloghsapi.onrender.com/api/categories/topPosts`);
-          const latestStories = await axios(`https://bloghsapi.onrender.com/api/categories/latestStories`);
+          const blog = await axios(`https://project7-backend.onrender.com/api/categories/blog`);
+          const latestArticle = await axios(`https://project7-backend.onrender.com/api/categories/latestArticle`);
+          const topPosts = await axios(`https://project7-backend.onrender.com/api/categories/topPosts`);
+          const latestStories = await axios(`https://project7-backend.onrender.com/api/categories/latestStories`);
     
 
           setBlog(blog.data)

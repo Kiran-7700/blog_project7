@@ -1,4 +1,4 @@
-import React, { useEffect ,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import "./Details.css"
 import { FaFacebook } from "react-icons/fa";
@@ -11,23 +11,29 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
-
 function Details() {
 
   const value = useLocation().state
-  console.log(value)
+  //console.log(value)
   const [data, setData] = useState([]);
-
-  useEffect(()=>{
-    axios.get("https://bloghsapi.onrender.com/api/categories/detailDesc")
-    .then((response) => setData(response.data))
-    .catch((error) => console.log("Error", error))
-  },[])
-
-
+  
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token === undefined) {
+      alert("User is not authorised to view particular page!!")
+    }
+    else {
+       axios.get("https://project7-backend.onrender.com/api/categories/detailDesc", {
+        headers: {
+          'authorization': "Bearer " + token
+        }
+      }).then((res)=>setData(res.data))
+    }
+  })
+ 
   return (
     <div>
-
+      
       <section className='singlePost'>
         <div className="container">
           <div className="right">
@@ -75,7 +81,7 @@ function Details() {
                   key={index}> <img src={item.cover} alt="" /></Link>
                 <Link to={`/details/${item.id}`} state={{ item }}
                   key={index}><h4>{item.title}</h4></Link>
-                <div className='footer'>
+                <div className='footer2'>
                   <img src="https://imgs.search.brave.com/fheKHA24ms7oYoRYaBxDV2piKTh8oQQc-2qtESQYCI0/rs:fit:800:930:1/g:ce/aHR0cHM6Ly9wNy5o/aWNsaXBhcnQuY29t/L3ByZXZpZXcvNy82/MTgvNTA1L2F2YXRh/ci1pY29uLWZhc2hp/b24tbWVuLXZlY3Rv/ci1hdmF0YXIuanBn" alt="" className='profileimg' />
                   <div>
                     <h5>Kiran Chormule</h5>
@@ -88,7 +94,7 @@ function Details() {
           </div>
         </div>
       </section>
-
+      
     </div>
   )
 }

@@ -6,7 +6,7 @@ function Food() {
   const [data, setData] = useState([]);
 
   useEffect(()=>{
-    axios.get("https://bloghsapi.onrender.com/api/categories/total")
+    axios.get("https://project7-backend.onrender.com/api/categories/total")
     .then((response) => setData(response.data))
     .catch((error) => console.log("Error", error))
   },[])

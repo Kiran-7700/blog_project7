@@ -50,7 +50,7 @@ function Home() {
   const [data, setData] = useState([]);
 
   useEffect(()=>{
-    axios.get("https://bloghsapi.onrender.com/api/categories/Data")
+    axios.get("https://project7-backend.onrender.com/api/categories/Data")
     .then((response) => setData(response.data))
     .catch((error) => console.log("Error", error))
   },[])
@@ -61,7 +61,6 @@ function Home() {
         <div className="Content">
           <Slider {...settings}>
             {data.map((item) => (
-
               <div className='boxs' key={item.id}>
                 <div className="box">
                   <h1>{item.text}</h1>
